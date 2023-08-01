@@ -2,15 +2,39 @@ using GoogleSheetsWrapper.Tests.TestObjects;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 
 namespace GoogleSheetsWrapper.Tests
 {
     public class BaseRepositoryTests
     {
+        public string number = "";
+        public string serialformatDate;
+
         [SetUp]
         public void Setup()
         {
+            number = "";
+            if (CultureInfo.CurrentCulture.Name == "en-US")
+            {
+                number = "1,234.56";
+            }
+            else
+            {
+                number = "1.234,56";
+            }
+
+            if (CultureInfo.CurrentCulture.Name == "en-US")
+            {
+                serialformatDate = "33.625";
+            }
+            else
+            {
+                serialformatDate = "33,625";
+            }
+
+
         }
 
 
@@ -54,13 +78,15 @@ namespace GoogleSheetsWrapper.Tests
         [Test]
         public void Test_Record_Creation()
         {
+            
+
             List<object> row = new List<object>()
             {
                 "Steve",
                 "+1(703)-999-2222",
                 "$ 100.00",
-                "33.625",  // DateTime in serial format for the date time of February 1, 1900 at 3:00 PM
-                "1,234.56"
+                serialformatDate,  // DateTime in serial format for the date time of February 1, 1900 at 3:00 PM
+                number
             };
 
             var record = new TestRecord(row, 1);
@@ -82,8 +108,8 @@ namespace GoogleSheetsWrapper.Tests
                 "Steve",
                 "+1(703)-999-2222",
                 "$ 100.00",
-                "33.625",  // DateTime in serial format for the date time of February 1, 1900 at 3:00 PM
-                "1,234.56"
+                serialformatDate,  // DateTime in serial format for the date time of February 1, 1900 at 3:00 PM
+                number
             };
 
             var attributes = SheetFieldAttributeUtils.GetAllSheetFieldAttributes<TestRecordOffset>();
@@ -109,8 +135,8 @@ namespace GoogleSheetsWrapper.Tests
                 "Steve",
                 "",
                 "$ 100.00",
-                "33.625",  // DateTime in serial format for the date time of February 1, 1900 at 3:00 PM
-                "1,234.56"
+                serialformatDate,  // DateTime in serial format for the date time of February 1, 1900 at 3:00 PM
+                number
             };
 
             var record = new TestRecord(row, 1);
@@ -126,8 +152,8 @@ namespace GoogleSheetsWrapper.Tests
                 "Steve",
                 "+1(703)-999-2222",
                 "",
-                "33.625",  // DateTime in serial format for the date time of February 1, 1900 at 3:00 PM
-                "1,234.56"
+                serialformatDate,  // DateTime in serial format for the date time of February 1, 1900 at 3:00 PM
+                number
             };
 
             var record = new TestRecord(row, 1);
@@ -144,7 +170,7 @@ namespace GoogleSheetsWrapper.Tests
                 "+1(703)-999-2222",
                 "$ 100.00",
                 "",  // DateTime in serial format for the date time of February 1, 1900 at 3:00 PM
-                "1,234.56"
+                number
             };
 
             var record = new TestRecord(row, 1);
@@ -161,7 +187,7 @@ namespace GoogleSheetsWrapper.Tests
                 "+1(703)-999-2222",
                 "$ 100.00",
                 "",  // DateTime in serial format for the date time of February 1, 1900 at 3:00 PM
-                "1,234.56"
+                number
             };
 
             var record = new TestRecordNonNullableDateTime(row, 1);
