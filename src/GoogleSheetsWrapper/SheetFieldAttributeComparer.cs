@@ -7,7 +7,7 @@ namespace GoogleSheetsWrapper
 {
     public class SheetFieldAttributeComparer : IComparer<SheetFieldAttribute>
     {
-        public int Compare([AllowNull] SheetFieldAttribute x, [AllowNull] SheetFieldAttribute y)
+        public int Compare( SheetFieldAttribute x, SheetFieldAttribute y)
         {
             if ((x != null) && (y != null))
             {
