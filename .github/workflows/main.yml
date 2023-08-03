@@ -37,4 +37,4 @@ jobs:
           msbuild.exe GoogleSheetsWrapper.sln /p:platform="Any CPU" /p:configuration="Release"
         
       - name: Run Tests
-        run: vstest.console.exe .\tests\Sandbox.Tests\bin\Release\Sandbox.Tests.dll
+        run: vstest.console.exe .\GoogleSheetsWrapper.Tests\bin\Release\net48\GoogleSheetsWrapper.Tests.dll
