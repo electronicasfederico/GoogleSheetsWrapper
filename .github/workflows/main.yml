@@ -30,11 +30,11 @@ jobs:
         run: cd $GITHUB_WORKSPACE
 
       - name: Restore Packages
-        run: nuget restore Sandbox.sln
+        run: nuget restore GoogleSheetsWrapper.sln
 
       - name: Build Solution
         run: |
-          msbuild.exe Sandbox.sln /p:platform="Any CPU" /p:configuration="Release"
+          msbuild.exe GoogleSheetsWrapper.sln /p:platform="Any CPU" /p:configuration="Release"
         
       - name: Run Tests
         run: vstest.console.exe .\tests\Sandbox.Tests\bin\Release\Sandbox.Tests.dll
