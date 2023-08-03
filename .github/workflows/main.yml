@@ -29,10 +29,10 @@ jobs:
       - name: Navigate to Workspace
         run: cd $GITHUB_WORKSPACE
 
-      - name: Restore Packages
-        run: nuget restore .\GoogleSheetsWrapper.sln
       - name: directorio ver
         run: dir
+      - name: Restore Packages
+        run: nuget restore .\GoogleSheetsWrapper.sln
 
       - name: Build Solution
         run: |
