@@ -32,11 +32,11 @@ jobs:
       - name: directorio ver
         run: dir
       - name: Restore Packages
-        run: nuget restore .\GoogleSheetsWrapper.sln
+        run: nuget restore .\src\GoogleSheetsWrapper.sln
 
       - name: Build Solution
         run: |
-          msbuild.exe .\GoogleSheetsWrapper.sln /p:platform="Any CPU" /p:configuration="Release"
+          msbuild.exe .\src\GoogleSheetsWrapper.sln /p:platform="Any CPU" /p:configuration="Release"
         
       - name: Run Tests
-        run: vstest.console.exe .\GoogleSheetsWrapper.Tests\bin\Release\net48\GoogleSheetsWrapper.Tests.dll
+        run: vstest.console.exe .\src\GoogleSheetsWrapper.Tests\bin\Release\net48\GoogleSheetsWrapper.Tests.dll
