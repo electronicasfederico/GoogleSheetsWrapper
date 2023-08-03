@@ -30,11 +30,11 @@ jobs:
         run: cd $GITHUB_WORKSPACE
 
       - name: Restore Packages
-        run: nuget restore GoogleSheetsWrapper.sln
+        run: nuget restore .\GoogleSheetsWrapper.sln
 
       - name: Build Solution
         run: |
-          msbuild.exe GoogleSheetsWrapper.sln /p:platform="Any CPU" /p:configuration="Release"
+          msbuild.exe .\GoogleSheetsWrapper.sln /p:platform="Any CPU" /p:configuration="Release"
         
       - name: Run Tests
         run: vstest.console.exe .\GoogleSheetsWrapper.Tests\bin\Release\net48\GoogleSheetsWrapper.Tests.dll
