@@ -14,6 +14,7 @@
     <Description>A simple wrapper library that makes it easier to perform CRUD operations against Google Sheets spreadsheets. Modificado para net48</Description>
     <Deterministic>true</Deterministic>
 	<LangVersion>8.0</LangVersion>
+	<PackageId>$(AssemblyName)48</PackageId>
   </PropertyGroup>
   
   <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
