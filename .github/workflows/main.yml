@@ -31,6 +31,8 @@ jobs:
 
       - name: Restore Packages
         run: nuget restore .\GoogleSheetsWrapper.sln
+      - name: directorio ver
+        run: dir
 
       - name: Build Solution
         run: |
