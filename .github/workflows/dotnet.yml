@@ -2,11 +2,11 @@ name: MainBuild
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main5 ]
     paths-ignore: 
       - '**/README.md'
   pull_request:
-    branches: [ main ]
+    branches: [ main5 ]
 
 env:
   DOTNET_VERSION: '6.0.x'
